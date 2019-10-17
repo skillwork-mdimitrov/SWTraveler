@@ -5,8 +5,8 @@ const unitToHours = {
 	"day": 24
 };
 
-const consumablesDurationToHours = (starShips) => {
-	const consumables = starShips[0]["consumables"];
+const consumablesDurationInHours = (ship) => {
+	const consumables = ship["consumables"];
 	const consumableDuration = parseInt(consumables); // extract the number from "3 years", "6 months", etc.
 
 	if(consumables.includes("year")) {
@@ -22,14 +22,23 @@ const consumablesDurationToHours = (starShips) => {
 		return consumableDuration * unitToHours.day;
 	}
 	else {
-		throw new Error('SW resupply calculator failed at converting the consumables to an hour format');
+		throw new Error('SW resupply calculator failed at converting the consumables to an hourly format');
 	}
 };
 
-const calculateStops = (starShips) => {
-	const calculableShips = starShips.filter(ship => parseInt(ship["MGLT"])); // eliminate ships with unknown MGLT
-	console.log(calculableShips);
-	console.log(
-		"%cDidn't find the starship you were looking for?\n" +
-		"Some aircraft couldn't get checks due to improper record", "color: gray");
+// Params JSDoc here
+const calculateStops = (distanceMGLT) => {
+	// starShipsArr comes from starships.js
+	const calculableShips = starShipsArr.filter(ship => parseInt(ship["MGLT"])); // eliminate ships with unknown MGLT
+	let shipsResupplyNeedsArr = [];
+	let starship;
+
+	for(let ship of calculableShips) {
+		starship = {};
+		starship["name"] = ship["name"];
+		starship["stops"] = Math.round(distanceMGLT / (consumablesDurationInHours(ship) * ship["MGLT"]));
+		shipsResupplyNeedsArr.push(starship);
+	}
+
+	return shipsResupplyNeedsArr;
 };

@@ -1,6 +1,6 @@
 /* Global variables
  ============================================================== */
-let starShipsArr = []; // Store all starships
+const starShipsArr = []; // Store all starships
 
 /* Functions
  ============================================================== */
@@ -24,16 +24,16 @@ const getStarShips = (url = `https://swapi.co/api/starships/`) => {
 			if(anotherFleet !== null) {
 				getStarShips(anotherFleet);
 			}
-			// There is no more unaccounted ships, proceed to calculate their need for resupply
-			else {
-				calculateStops(starShipsArr); // see resupplyCalc.js
-			}
 		}
 		// On failure
 		else {
 			console.log('Retrieving the Star Wars fleet failed. \nError in network request: ' + req.statusText);
 		}});
+	req.onerror = function(){
+		console.log("%cStar Wars API seems unreachable\n" +
+		"This is an external issue. Check when https://swapi.co/api/starships/ is back and please try again.", "color: red");
+	};
 	req.send(null);
 };
 
-getStarShips(); // Initiate the fleet assembly, so users don't wait
+getStarShips(); // Already initiate the fleet assembly, so users don't have to wait
