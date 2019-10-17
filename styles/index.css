@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "starwars";
+  src: url('../fonts/starwars.woff');
+}
+
+h1 {
+  font-family: "starwars", Verdana, Tahoma, sans-serif;
+  font-size: 24px;
+}
