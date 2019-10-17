@@ -1,5 +1,10 @@
 /* Global variables
  ============================================================== */
+
+/**
+ * CSS properties used for styling the console output
+ * @type {string}
+ */
 const cssBlackColour = "color: black";
 const cssWhiteColour = "color: white";
 const cssCrimsonColour = "color: crimson";
@@ -12,6 +17,12 @@ console.log(`%cType in `+`%chelp()`+ `%c to get started`, cssBlackColour, cssCri
 
 /* Functions
  ============================================================== */
+
+/**
+ * Based on distance, calculate and print starships with their need for resupply stops
+ * @param {number} distanceMGLT - The distance the starship needs to cover
+ * @return {string} - line separator
+ */
 const go = (distanceMGLT) => {
 	const shipsResupplyNeeds = calculateStops(distanceMGLT); // see resupplyCalc.js
 	shipsResupplyNeeds.forEach((ship) => {

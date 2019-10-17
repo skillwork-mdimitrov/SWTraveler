@@ -1,3 +1,10 @@
+/* Global variables
+ ============================================================== */
+
+/**
+ * Represent time units in hours
+ * @type {Object}
+ */
 const unitToHours = {
 	"year": 8760,
 	"month": 730,
@@ -5,6 +12,14 @@ const unitToHours = {
 	"day": 24
 };
 
+/* Functions
+ ============================================================== */
+
+/**
+ * Convert in hours how long will a starship consumables last
+ * @param {object} ship - a single starship.
+ * @return {number} consumableDuration - the duration of consumables for that ship (in hours)
+ */
 const consumablesDurationInHours = (ship) => {
 	const consumables = ship["consumables"];
 	const consumableDuration = parseInt(consumables); // extract the number from "3 years", "6 months", etc.
@@ -26,7 +41,11 @@ const consumablesDurationInHours = (ship) => {
 	}
 };
 
-// Params JSDoc here
+/**
+ * Based on distance, calculate and return starships with their need for resupply stops
+ * @param {number} distanceMGLT - The distance the starship needs to cover
+ * @return {object} shipsResupplyNeedsArr
+ */
 const calculateStops = (distanceMGLT) => {
 	// starShipsArr comes from starships.js
 	const calculableShips = starShipsArr.filter(ship => parseInt(ship["MGLT"])); // eliminate ships with unknown MGLT
@@ -36,7 +55,7 @@ const calculateStops = (distanceMGLT) => {
 	for(let ship of calculableShips) {
 		starship = {};
 		starship["name"] = ship["name"];
-		starship["stops"] = Math.round(distanceMGLT / (consumablesDurationInHours(ship) * ship["MGLT"]));
+		starship["stops"] = Math.round(distanceMGLT / (consumablesDurationInHours(ship) * ship["MGLT"])); // formula
 		shipsResupplyNeedsArr.push(starship);
 	}
 
