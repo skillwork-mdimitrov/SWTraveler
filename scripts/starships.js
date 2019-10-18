@@ -1,9 +1,17 @@
 /* Global variables
  ============================================================== */
-const starShipsArr = []; // Store all starships
+/**
+ * An array to store all starship objects
+ * @type {Object}
+ */
+const starShipsArr = [];
 
 /* Functions
  ============================================================== */
+/**
+ * Retrieve all starships from the SWAPI and store them in an array
+ * @param {string} url - SWAPI API retrieve starships
+ */
 const getStarShips = (url = `https://swapi.co/api/starships/`) => {
 	const req = new XMLHttpRequest();
 

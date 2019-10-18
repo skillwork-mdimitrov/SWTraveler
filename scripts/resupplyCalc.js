@@ -1,6 +1,5 @@
 /* Global variables
  ============================================================== */
-
 /**
  * Represent time units in hours
  * @type {Object}
@@ -14,7 +13,6 @@ const unitToHours = {
 
 /* Functions
  ============================================================== */
-
 /**
  * Convert in hours how long will a starship consumables last
  * @param {object} ship - a single starship.
@@ -42,12 +40,26 @@ const consumablesDurationInHours = (ship) => {
 };
 
 /**
+ * Inform the user for too slow/unreachable SWAPI
+ */
+const checkFleet = () => {
+	// Check if array exists or not empty
+	if(!Array.isArray(starShipsArr) || !starShipsArr.length) {
+		console.log(
+			"Seems like the starships haven't arrived yet. Please try the go() command again\n" +
+			"%cStill not working? The SWAPI might be down, please check if https://swapi.co/api/starships/ works", "color: gray"
+		)
+	}
+};
+
+/**
  * Based on distance, calculate and return starships with their need for resupply stops
  * @param {number} distanceMGLT - The distance the starship needs to cover
- * @return {object} shipsResupplyNeedsArr
+ * @return {object} shipsResupplyNeedsArr - an array with ships and their stops for that distance
  */
 const calculateStops = (distanceMGLT) => {
 	// starShipsArr comes from starships.js
+	checkFleet();
 	const calculableShips = starShipsArr.filter(ship => parseInt(ship["MGLT"])); // eliminate ships with unknown MGLT
 	let shipsResupplyNeedsArr = [];
 	let starship;

@@ -1,6 +1,5 @@
 /* Global variables
  ============================================================== */
-
 /**
  * CSS properties used for styling the console output
  * @type {string}
@@ -9,6 +8,7 @@ const cssBlackColour = "color: black";
 const cssWhiteColour = "color: white";
 const cssCrimsonColour = "color: crimson";
 const cssGreenColour = "color: darkgreen";
+const cssGrayColour = "color: gray";
 const cssUnderlineText = "text-decoration: underline";
 const cssBlackBgColour = "background: black";
 
@@ -17,7 +17,6 @@ console.log(`%cPass a desired distance to the ` + `%cgo()` + ` %ccommand, like s
 
 /* Functions
  ============================================================== */
-
 /**
  * User input validation
  * @param {number} distanceMGLT - The distance the starship needs to cover
@@ -39,6 +38,7 @@ const checkFaultyInput = (distanceMGLT) => {
 /**
  * Based on distance, calculate and print starships with their need for resupply stops
  * @param {number} distanceMGLT - The distance the starship needs to cover
+ * @return {string} line separator for the console
  */
 const go = (distanceMGLT) => {
 	checkFaultyInput(distanceMGLT);
@@ -49,7 +49,7 @@ const go = (distanceMGLT) => {
 	});
 	console.log(
 		"%cDidn't find the starship you were looking for?\n" +
-		"Some aircraft were omitted due to improper record.", "color: gray");
+		"Some aircraft were omitted due to improper record.", cssGrayColour);
 	return `-------------------------------------------------`;
 };
 
