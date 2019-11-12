@@ -1,5 +1,5 @@
 const test = () => {
-// IIFE wrappers used to create scope and naming conflicts
+// IIFE wrappers used to create scope and avoid naming conflicts
 
 	/* Check for API changes in the property naming
     ============================================================== */
