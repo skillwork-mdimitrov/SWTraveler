@@ -12,7 +12,7 @@ const starShipsArr = [];
  * Retrieve all starships from the SWAPI and store them in an array
  * @param {string} url - SWAPI API retrieve starships
  */
-const getStarShips = (url = `https://swapi.co/api/starships/`) => {
+const getStarShips = (url = `https://swapi.dev/api/starships/`) => {
 	const req = new XMLHttpRequest();
 
 	req.open('GET', url, true);
@@ -39,7 +39,7 @@ const getStarShips = (url = `https://swapi.co/api/starships/`) => {
 		}});
 	req.onerror = function(){
 		console.log("%cStar Wars API seems unreachable\n" +
-		"This is an external issue. Check when https://swapi.co/api/starships/ is back and please try again.", "color: red");
+		"This is an external issue. Check when https://swapi.dev/api/starships/ is back and please try again.", "color: red");
 	};
 	req.send(null);
 };

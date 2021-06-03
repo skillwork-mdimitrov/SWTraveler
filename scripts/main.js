@@ -44,6 +44,7 @@ const go = (distanceMGLT) => {
 	checkFaultyInput(distanceMGLT);
 
 	const shipsResupplyNeeds = calculateStops(distanceMGLT); // see resupplyCalc.js
+	console.log(`For the given distance of ${distanceMGLT} ↓`)
 	shipsResupplyNeeds.forEach((ship) => {
 		console.log(`%c${ship.name}` + `%c has to stop for resupply: ` + `%c${ship.stops}`, `${cssGreenColour}; ${cssUnderlineText}`, cssBlackColour, cssCrimsonColour);
 	});

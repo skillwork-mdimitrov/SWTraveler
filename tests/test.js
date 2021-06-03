@@ -53,16 +53,16 @@ const test = () => {
 	(() => {
 		const distance = 2000000;
 		const ships = calculateStops(distance);
-		const executorShip = ships[0];
-		// Executor ship stops for 2000000
-		if(executorShip["name"] === "Executor") {
+		const cR90Corvette = ships[0];
+		// CR90 corvette ship stops for the distance of 2000000 ↓
+		if(cR90Corvette["name"] === "CR90 corvette") {
 			console.log(
-				executorShip["stops"] === 1
+				cR90Corvette["stops"] === 4
 				? "✅ - Stops for resupply calculator"
 				: "❌ - Stops for resupply calculator"
 			);
 		} else {
-			console.log("❓ - The Executor ship was not found");
+			console.log("❓ - The CR90 corvette ship was not found, possibly not indexed [0] anymore");
 		}
 	})();
 };

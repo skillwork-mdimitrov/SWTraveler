@@ -10,7 +10,7 @@ Open index.html in the browser of choice
 
 # Requirements:  
 * Modern browser  
-* Swapi API available, check @ https://swapi.co/api/starships/
+* Swapi API available, check @ https://swapi.dev/api/starships/
 
 # Testing:  
 Run test() in the browser's console

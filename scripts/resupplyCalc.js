@@ -47,7 +47,7 @@ const checkFleet = () => {
 	if(!Array.isArray(starShipsArr) || !starShipsArr.length) {
 		console.log(
 			"Seems like the starships haven't arrived yet. Please try the go() command again\n" +
-			"%cStill not working? The SWAPI might be down, please check if https://swapi.co/api/starships/ works", "color: gray"
+			"%cStill not working? The SWAPI might be down, please check if https://swapi.dev/api/starships/ works", "color: gray"
 		)
 	}
 };
