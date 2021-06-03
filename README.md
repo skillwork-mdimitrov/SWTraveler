@@ -2,7 +2,7 @@
 A Vanilla JS Star Wars resupply calculator app, determining the needed stops when traveling
 
 # Screenshot
-![alt text](https://github.com/Maksim1337/SWTraveler/blob/master/images/run-example-new.PNG "Run go(1000000) in the console")
+![alt text](https://github.com/Maksim1337/SWTraveler/blob/master/images/run-example.PNG "Run go(1000000) in the console")
 
 # How to run
 Open index.html in the browser of choice
