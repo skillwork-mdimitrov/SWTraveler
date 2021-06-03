@@ -1,5 +1,5 @@
 # SWTraveler
-A Vanilla JS Star Wars resupply calculator app, determining the needed stops when traveling
+A Vanilla JS Star Wars resupply calculator app, determining the needed stops when traveling a given distance
 
 # Screenshot
 ![alt text](https://github.com/Maksim1337/SWTraveler/blob/master/images/app-screenshot.PNG "Run go(1000000) in the console")
