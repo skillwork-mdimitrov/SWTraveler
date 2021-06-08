@@ -53,23 +53,19 @@ const checkFleet = () => {
 };
 
 /**
- * Based on distance, calculate and return starships with their need for resupply stops
+ * Based on distance, filter, calculate and return starships with their need for resupply stops
  * @param {number} distanceMGLT - The distance the starship needs to cover
- * @return {object} shipsResupplyNeedsArr - an array with ships and their stops for that distance
+ * @return {object} an array with ships and their needed stops for the given distance
  */
 const calculateStops = (distanceMGLT) => {
 	// starShipsArr comes from starships.js
 	checkFleet();
 	const calculableShips = starShipsArr.filter(ship => parseInt(ship["MGLT"])); // eliminate ships with unknown MGLT
-	let shipsResupplyNeedsArr = [];
-	let starship;
 
-	for(let ship of calculableShips) {
-		starship = {};
-		starship["name"] = ship["name"];
-		starship["stops"] = Math.round(distanceMGLT / (consumablesDurationInHours(ship) * ship["MGLT"])); // formula
-		shipsResupplyNeedsArr.push(starship);
-	}
-
-	return shipsResupplyNeedsArr;
+	return calculableShips.map(ship => 
+		({
+			name: ship["name"],
+			stops: Math.round(distanceMGLT / (consumablesDurationInHours(ship) * ship["MGLT"])) // formula
+		})
+	)
 };

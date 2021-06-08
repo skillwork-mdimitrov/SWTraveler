@@ -23,13 +23,13 @@ console.log(`%cPass a desired distance to the ` + `%cgo()` + ` %ccommand, like s
  */
 const checkFaultyInput = (distanceMGLT) => {
 	// Empty param
-	if(typeof distanceMGLT === "undefined") {
+	if(!distanceMGLT) {
 		console.log("Please pass a number to the go() function, like the example in red %cgo(1000000)", cssCrimsonColour);
 		throw new Error("Empty parameter not allowed");
 	}
 
 	// Negative or 0 param
-	else if(Math.sign(distanceMGLT) === -1 || Math.sign(distanceMGLT) === 0) {
+	else if(Math.sign(distanceMGLT) !== +1) {
 		console.log("Please pass a positive and non zero parameter to the go() function");
 		throw new Error("Negative or 0 parameter not allowed");
 	}
